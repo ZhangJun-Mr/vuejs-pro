@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueResource from 'vue-resource';
 import App from './App';
 import router from './router';
+import './static/css/reset.css'
 
 
 import './common/stylus/index.styl';

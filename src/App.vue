@@ -60,7 +60,7 @@
             this.seller = Object.assign({}, this.seller, response.data);
           }
         }).catch((error)=>{
-          debugger;
+          // debugger;
         });
       }
     },
