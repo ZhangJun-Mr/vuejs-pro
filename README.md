@@ -1,5 +1,14 @@
 # vuejs-pro
 
+
+## 环境需要
+> node 8.9+
+
+## pre start
+```
+    npm i -g @vue/cli @vue/cli-service-global @vue/cli-service
+```
+
 ## Project setup
 ```
 npm install
