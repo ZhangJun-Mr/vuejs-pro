@@ -1,8 +1,17 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import VueResource from 'vue-resource';
+import App from './App';
 
-Vue.config.productionTip = false
+import './common/stylus/index.styl';
 
-new Vue({
-  render: h => h(App),
-}).$mount('#app')
+Vue.use(VueRouter);
+Vue.use(VueResource);
+Vue.http.options.emulateJSON = true;
+
+/* eslint-disable no-new */
+window.bvue = new Vue({
+  el: '#app',
+  render: h => h(App)
+});
+
