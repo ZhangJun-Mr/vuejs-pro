@@ -13,7 +13,7 @@
       </div>
       <div class="foods-wrapper" ref="foodsWrapper">
         <ul>
-          <li v-for="(item, index) in goods" :key="index" class="food-list">
+          <li v-for="(item, index) in goods" :key="index" class="food-list" ref="foodList">
             <h1 class="title">{{item.name}}</h1>
             <ul>
               <li v-for="food in item.foods" :key="food.id" class="food-item border-1px">
@@ -110,7 +110,6 @@
       selectedGoods = selectedGoods ? JSON.parse(selectedGoods) : [];
       this.$http.get('/api/sell/buyer/product/list').then((response) => {
         response = response.body;
-        debugger
         if (response.code === ERR_OK) {
           selectedGoods.map(item => {
             response.data.map((food, index) => {
@@ -140,6 +139,7 @@
           return;
         }
         let foodList = this.$refs.foodList;
+        debugger;
         let el = foodList[index];
         this.foodsScroll.scrollToElement(el, 300);
       },
