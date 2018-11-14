@@ -52,8 +52,7 @@
   import cartcontrol from '../cartcontrol/cartcontrol';
   import food from '../food/food';
 
-  var config = require('config');
-  config = process.env.NODE_ENV === 'development' ? config.dev : config.build;
+  const config = require('../../config/config');
   const ERR_OK = 0;
 
   export default {

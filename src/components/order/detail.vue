@@ -73,8 +73,7 @@
 </template>
 
 <script>
-  var config = require('config');
-  config = process.env.NODE_ENV === 'development' ? config.dev : config.build;
+  const config = require('../../config/config');
   export default {
     data() {
       return {
