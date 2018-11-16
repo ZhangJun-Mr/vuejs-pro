@@ -10,7 +10,7 @@
             <div class="card-hd"><img class="avator" :src="seller.avatar"><span class="title">{{seller.name}}</span>
             </div>
 
-            <div v-for="{item,index} in selectedGoods" :key="index" class="food-item">
+            <div v-for="(item,index) in selectedGoods" :key="index" class="food-item">
                 <label>{{item.name}}</label>
                 <div class="mount"><span class="number" v-if="item.count > 1">x{{item.count}}</span>¥{{item.count *
                     item.price}}

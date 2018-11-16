@@ -39,7 +39,7 @@
                                   :ratings="food.ratings"></ratingselect>
                     <div class="rating-wrapper">
                         <ul v-show="food.ratings && food.ratings.length">
-                            <li v-show="needShow(rating.rateType,rating.text)" v-for="{rating, index} in food.ratings"
+                            <li v-show="needShow(rating.rateType,rating.text)" v-for="(rating, index) in food.ratings"
                                 :key="index"
                                 class="rating-item border-1px">
                                 <div class="user">

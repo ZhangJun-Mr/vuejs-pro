@@ -32,6 +32,9 @@
         seller: {
           id: (() => {
             let queryParam = urlParse();
+            if(!queryParam.id){
+              return '123456'
+            }
             return queryParam.id;
           })()
         },
