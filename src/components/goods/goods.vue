@@ -124,6 +124,7 @@
               });
             });
           });
+          debugger
           this.goods = response.data;
 //          console.log('hello world', this.goods);
           this.$nextTick(() => {
