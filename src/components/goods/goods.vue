@@ -124,7 +124,6 @@
               });
             });
           });
-          debugger
           this.goods = response.data;
 //          console.log('hello world', this.goods);
           this.$nextTick(() => {
@@ -140,7 +139,6 @@
           return;
         }
         let foodList = this.$refs.foodList;
-        debugger;
         let el = foodList[index];
         this.foodsScroll.scrollToElement(el, 300);
       },

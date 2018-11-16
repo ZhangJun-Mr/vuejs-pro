@@ -143,7 +143,6 @@
         });
       },
       pay: function (orderId) {
-        debugger
         location.href = config.wechatPayUrl +
           '?openid=' + getCookie('openid') +
           '&orderId=' + orderId +

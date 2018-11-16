@@ -60,7 +60,6 @@
                 ).then((respones) => {
                     respones = respones.body;
                     if (respones.code == ERR_OK) {
-                      debugger;
                       location.href = config.wechatPayUrl +
                         '?openid=' + getCookie('openid') +
                         '&orderId=' + respones.data.orderId +
