@@ -1,5 +1,7 @@
+import vueConfig from '../../vue.config'
+
 export default {
-  port: 8088,
+  port: vueConfig.devServer.port,
   assetsSubDirectory: 'static',
   assetsPublicPath: '/',
   sellUrl: 'http://127.0.0.1:8088',
