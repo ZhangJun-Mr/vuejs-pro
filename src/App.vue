@@ -1,28 +1,29 @@
 <template>
-  <div>
-    <template v-if="showHeader">
-      <v-header :seller="seller"></v-header>
-      <div class="tab border-1px">
-        <div class="tab-item">
-          <router-link to="/goods">商品</router-link>
-        </div>
-        <div class="tab-item">
-          <router-link to="/ratings">评论</router-link>
-        </div>
-        <div class="tab-item">
-          <router-link to="/seller">商家</router-link>
-        </div>
-      </div>
-    </template>
+    <div>
+        <template v-if="showHeader">
+            <v-header :seller="seller"></v-header>
+            <div class="tab border-1px">
+                <div class="tab-item">
+                    <router-link to="/goods">商品</router-link>
+                </div>
+                <div class="tab-item">
+                    <router-link to="/ratings">评论</router-link>
+                </div>
+                <div class="tab-item">
+                    <router-link to="/seller">商家</router-link>
+                </div>
+            </div>
+        </template>
 
-    <router-view :seller="seller" :showHeader="showHeader"></router-view>
+        <router-view :seller="seller" :showHeader="showHeader"></router-view>
 
-  </div>
+    </div>
 </template>
 
 <script type="text/ecmascript-6">
   import {urlParse} from './common/js/util';
   import header from './components/header/header.vue';
+
   const ERR_OK = 0;
 
   export default {
@@ -31,6 +32,9 @@
         seller: {
           id: (() => {
             let queryParam = urlParse();
+            if(!queryParam.id){
+              return '123456'
+            }
             return queryParam.id;
           })()
         },
@@ -41,7 +45,7 @@
       changeHash() {
         const hash = window.location.hash;
         if (hash.indexOf('payment') > -1
-        || hash.indexOf('order') > -1) {
+            || hash.indexOf('order') > -1) {
           this.showHeader = false;
         } else {
           this.showHeader = true;
@@ -59,7 +63,7 @@
           if (response.errno === ERR_OK) {
             this.seller = Object.assign({}, this.seller, response.data);
           }
-        }).catch((error)=>{
+        }).catch((error) => {
           // debugger;
         });
       }
@@ -71,22 +75,22 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  @import "./common/stylus/mixin.styl"
+    @import "./common/stylus/mixin.styl"
 
-  .tab
-    display: flex
-    width: 100%
-    height: 40px
-    line-height: 40px
-    // border-bottom: 1px solid rgba(7, 17, 27, 0.1)
-    border-1px(rgba(7, 17, 27, 0.1))
-    .tab-item
-      flex: 1
-      text-align: center
-      & > a
-        display: block
-        font-size: 14px
-        color: rgb(77, 85, 93)
-        &.active
-          color: rgb(240, 20, 20)
+    .tab
+        display: flex
+        width: 100%
+        height: 40px
+        line-height: 40px
+        // border-bottom: 1px solid rgba(7, 17, 27, 0.1)
+        border-1px(rgba(7, 17, 27, 0.1))
+        .tab-item
+            flex: 1
+            text-align: center
+            & > a
+                display: block
+                font-size: 14px
+                color: rgb(77, 85, 93)
+                &.active
+                    color: rgb(240, 20, 20)
 </style>
