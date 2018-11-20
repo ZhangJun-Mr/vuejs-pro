@@ -51,7 +51,7 @@
                 <h1 class="title">商家实景</h1>
                 <div class="pic-wrapper" ref="picWrapper">
                     <ul class="pic-list" ref="picList">
-                        <li class="pic-item" v-for="{pic, index} in seller.pics" :key="index">
+                        <li class="pic-item" v-for="(pic, index) in seller.pics" :key="index">
                             <img :src="pic" width="120" height="90">
                         </li>
                     </ul>
@@ -61,7 +61,7 @@
             <div class="info">
                 <h1 class="title border-1px">商家信息</h1>
                 <ul>
-                    <li class="info-item" v-for="{info, index} in seller.infos" :key="index">{{info}}</li>
+                    <li class="info-item" v-for="(info, index) in seller.infos" :key="index">{{info}}</li>
                 </ul>
             </div>
         </div>
