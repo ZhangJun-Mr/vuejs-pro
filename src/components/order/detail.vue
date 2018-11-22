@@ -73,7 +73,7 @@
 </template>
 
 <script>
-  const config = require('../../config/config');
+  const {config} = require('../../config/config');
   export default {
     data() {
       return {
@@ -146,7 +146,7 @@
         location.href = config.wechatPayUrl +
             '?openid=' + getCookie('openid') +
             '&orderId=' + orderId +
-            '&returnUrl=' + encodeURIComponent(config.sellUrl + '/#/order/' + orderId);
+            '&returnUrl=' + config.sellUrl + '/#/order/' + orderId;
       }
     }
   }
@@ -154,7 +154,7 @@
   function getCookie(name) {
     var arr;
     var reg = new RegExp('(^| )' + name + "=([^;]*)(;|$)");
-    if (arr = document.cookie.match(reg))
+    if (arr = localStorage.getItem("openid").match(reg))
       return unescape(arr[2]);
     else
       return null;

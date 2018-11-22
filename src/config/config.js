@@ -1,6 +1,6 @@
 import vueConfig from '../../vue.config'
 
-export default {
+export const config = {
   port: vueConfig.devServer.port,
   assetsSubDirectory: 'static',
   assetsPublicPath: '/',

@@ -24,7 +24,7 @@
     </div>
 </template>
 <script>
-  const config = require('../../config/config');
+  const {config} = require('../../config/config');
   export default {
     data() {
       return {
@@ -63,12 +63,17 @@
               'items': JSON.stringify(goods)
             }
         ).then((respones) => {
+          console.log(config['wechatPayUrl']);
+          console.log(config);
+          console.log(config);
           respones = respones.body;
           if (respones.code == ERR_OK) {
-            location.href = config.wechatPayUrl +
+            const href = config['wechatPayUrl'] +
                 '?openid=' + getCookie('openid') +
                 '&orderId=' + respones.data.orderId +
-                '&returnUrl=' + encodeURIComponent(config.sellUrl + '/#/order/' + respones.data.orderId);
+                '&returnUrl=' + config.sellUrl + '/#/order/' + respones.data.orderId;
+            debugger
+            location.href = href;
           } else {
             alert(respones.msg);
           }

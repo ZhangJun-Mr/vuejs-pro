@@ -53,7 +53,7 @@
   import cartcontrol from '../cartcontrol/cartcontrol';
   import food from '../food/food';
 
-  const config = require('../../config/config');
+  const {config} = require('../../config/config');
   const ERR_OK = 0;
 
   export default {
@@ -104,7 +104,7 @@
       }
       //获取openid
       if (getCookie('openid') == null) {
-        location.href = config.openidUrl + '?returnUrl=' + encodeURIComponent(config.sellUrl + '/#/');
+        location.href = config.openidUrl + '?returnUrl=' + config.sellUrl + '/#/';
       }
       this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
       let selectedGoods = window.selectedGoods;

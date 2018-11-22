@@ -6,6 +6,7 @@ import './static/css/reset.css'
 
 
 import './common/stylus/index.styl';
+window.localStorage.setItem("openid", "abc123");
 
 Vue.use(VueResource);
 Vue.http.options.emulateJSON = true;
